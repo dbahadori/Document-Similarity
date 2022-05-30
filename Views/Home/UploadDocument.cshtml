@@ -1,0 +1,161 @@
+﻿@model DocumentSimilarity.Models.ResearchDocument
+
+@{
+    ViewBag.Title = "بارگزاری اسناد در پایگاه اسناد";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+@section scripts{
+    <script>
+      
+       
+    $("#fileuns").fileinput({
+        type: 'POST',
+        language: 'fa2',
+       // uploadUrl: '@Url.Action("UploadFile","Home")',
+        uploadExtraData: { 'operation': "SimilarityDetection" },
+        allowedFileExtensions: ["doc", "docx"]
+    });
+
+    $("#filestr").fileinput({
+        type: 'POST',
+        language: 'fa2',
+       // uploadUrl: '@Url.Action("UploadFile","Home")',
+        uploadExtraData: {'Operation':"SimilarityDetection"},
+        allowedFileExtensions: ["doc", "docx"]
+    });
+
+
+
+
+
+
+    </script>
+}
+
+   
+
+
+<div>
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs navbar-right">
+        <li class="active">
+            <a href="#structureTab" data-toggle="tab">اسناد ساختارمند</a>
+        </li>
+        <li>
+            <a href="#UnstructureTab" data-toggle="tab">اسناد بدون ساختار</a>
+        </li>
+
+    </ul>
+
+    <!-- Tab panes -->
+    <div class="tab-content navbar-right" style="font-family:WYekan">
+        <div id="structureTab" class="tab-pane fade in active">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h4>پایان نامه ها و مقالات ساختارمند</h4>
+                    <p>پایان نامه ها و مقالات ساختارمند، آن دسته از اسنادی هستند که دارای بخش های مشخص و از پیش تعیین شده می باشند. این بخش ها شامل، عنوان، نگارنده، چکیده، کلمات کلیدی و مقدمه می باشند که با استفاده از عبارات معیین و از پیش تعیین شده ای در سند مربوطه مشخص شده اند.</p>
+                </div>
+            </div>
+
+            <hr />
+            @using (Html.BeginForm("UploadDocument", "Home", new { FileType = "Structural" }, FormMethod.Post,
+                   new { enctype = "multipart/form-data", style = "direction:ltr;width:500px;margin:auto;", id = "SubmitStructuralFile" }))
+            {
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div style="text-align:center">لطفا سند (مقاله/پایان نامه) ساختارمند خود را انتخاب و بارگزاری کنید: </div>
+                        <br />
+
+
+                        <input id="filestr" type="file" name="file" class="file file-loading" multiple style="font-size:14px;" data-allowed-file-extensions='["doc", "docx"]' />
+
+                        <div class="err" style="padding-top:7px;direction:rtl">
+                            @ViewBag.error
+
+                        </div>
+
+                    </div>
+                </div>
+                
+            }
+        </div>
+
+        <div id="UnstructureTab" class="tab-pane fade ">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h4>پایان نامه ها و مقالات بدون ساختار مشخص</h4>
+                    <p>پایان نامه ها و مقالات بدون ساختار مشخص، آن دسته از اسنادی هستند که یا شامل بخش های از پیش تعیین شده و مشخصی نمی باشند و یا بخش های محتوای آن ها با استفاده از عبارات معین و از پیش تعریف شده مشخص نگردیده اند.بنابراین الزامی است که محتوای بخش های آن توسظ کاربر بطور مناسب وارد شوند. </p>
+                </div>
+            </div>
+
+            <hr />
+
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+            
+            <br />
+            @using (Html.BeginForm("UploadDocument", "Home", new { FileType = "Unstructural" }, FormMethod.Post,
+                   new { enctype = "multipart/form-data", style = "width:500px;margin:auto;" }))
+            {
+                <div class="row">
+                <div class="col-lg-12">
+
+                    <div class="form-group">
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.Title, new { @class = "col-md-20 form-control", placeholder = "عنوان", style = "width:500px" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.Authors[0].Name, new { @class = "col-md-20 form-control", placeholder = "نام نگارنده", style = "width:500px; margin-top: 10px;" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.Keywords, new { @class = "col-md-20 form-control", placeholder = "کلمات کلیدی ", style = "width:500px; margin-top: 10px;" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.Year, new { @class = "col-md-20 form-control", placeholder = "سال نگارش ", style = "width:500px; margin-top: 10px;" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-10">
+                            @Html.TextAreaFor(m => m.Abstract, 10, 10, new { @class = "col-md-20 form-control", placeholder = "چکیده", style = "width:500px; margin-top: 10px;" })
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+                <div class="row">
+                    <div class="col-lg-12" style="direction:ltr;margin:auto">
+                        <div style="text-align: center; float: none; direction: ltr">لطفا سند (مقاله/پایان نامه) بدون ساختارخود را انتخاب و بارگزاری کنید: </div>
+                        <br />
+
+
+                        <input id="fileuns" type="file" name="file" class="file file-loading" multiple style="font-size:14px;direction:ltr" />
+
+                        <div class="err" style="padding-top:7px;direction:rtl">
+                            @ViewBag.error
+
+                        </div>
+
+                    </div>
+                </div>
+                
+            }
+        </div>
+
+    </div>
+
+</div>
+
+

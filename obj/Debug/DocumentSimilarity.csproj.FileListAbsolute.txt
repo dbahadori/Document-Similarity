@@ -1,0 +1,7 @@
+E:\project\fava-aja\DocumentSimilarity\DocumentSimilarity\obj\Debug\DocumentSimilarity.csproj.ResolveComReference.cache
+E:\project\fava-aja\DocumentSimilarity\DocumentSimilarity\bin\DocumentSimilarity.dll.config
+E:\project\fava-aja\DocumentSimilarity\DocumentSimilarity\bin\DocumentSimilarity.dll
+E:\project\fava-aja\DocumentSimilarity\DocumentSimilarity\bin\DocumentSimilarity.pdb
+E:\project\fava-aja\DocumentSimilarity\DocumentSimilarity\bin\Lucene.Net.Contrib.Analyzers.3.0.3.0.Fakes.fakesconfig
+E:\project\fava-aja\DocumentSimilarity\DocumentSimilarity\obj\Debug\DocumentSimilarity.dll
+E:\project\fava-aja\DocumentSimilarity\DocumentSimilarity\obj\Debug\DocumentSimilarity.pdb

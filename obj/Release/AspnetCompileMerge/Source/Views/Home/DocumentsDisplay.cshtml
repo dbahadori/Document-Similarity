@@ -1,0 +1,124 @@
+﻿@model List<DocumentSimilarity.Models.ResearchDocument>
+      
+@{
+    ViewBag.Title = "نمایش اسناد نمایه شده در پایگاه اسناد";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section scripts{
+
+    <script language="javascript" type="text/javascript">
+
+      
+
+        $(document).ready(function () {
+           
+            $('#myDataTable').dataTable({
+                language: {
+                    processing: "درحال پردازش...",
+                    lengthMenu: "نمایش محتویات _MENU_",
+                    zeroRecord: "موردی یافت نشد",
+                    info: "نمایش _START_ تا _END_ از مجموع _TOTAL_ مورد",
+                    infoEmpty: "خالی",
+                    infoFiltered: "(فیلتر شده از مجموع _MAX_ مورد)",
+                    infoPostFix: "",
+                    search: "جستجو:",
+                    url: "",
+                    paginate: {
+                        first: "ابتدا ",
+                        previous: "قبلی ",
+                        next: "بعدی ",
+                        last: "انتها "
+                    }
+                }
+            }).makeEditable();
+            
+        });
+        
+    </script>
+
+}
+
+<div class="table-responsive" style="font-family:WYekan">
+    <table id="myDataTable" class="display table table-striped table-bordered table-condensed" style="font-family:b Nazanin; ">
+        <thead>
+            <tr style="font-family:'B Titr'">
+                <th>نام سند</th>
+                <th>عنوان</th>
+                <th>نگارنده</th>
+                <th>چکیده</th>
+                <th>کلمات کلیدی</th>
+               
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                var idList = (Dictionary<string, int>)Session["docID"];
+               
+                var authorList = (from a in item.Authors select a.Name).ToList();
+                var authorsName =new Dictionary<string,string>();
+                var count = 0;
+                var name="";
+                foreach (var a in authorList)
+                {
+                    name += a;
+                    count++;
+                    if (count >= 1 && count < authorList.Count())
+                    {
+                        name += " ، ";
+                    }
+                }
+                authorsName.Add(item.Name, name + " ، ");
+               
+                
+                <tr id="@idList[item.Name.ToString()]">
+                    <td>@Html.ActionLink(item.Name, "Download", new{docName=item.Name,strType=item.Type })</td>
+                    <td width="25%">@item.Title</td>
+                    <td width="15%">@authorsName[item.Name.ToString()]</td>
+                    
+                                
+                
+                    <td width="25%">
+                        @{if (item.Abstract.Length > 210)
+                        {
+                            var content = item.Abstract.Substring(0, 200) + "....";
+                            @content
+                        }
+                        else
+                        {
+                            @item.Abstract
+                        }
+                        }
+
+
+                    </td>
+                    <td width="20%">@item.Keywords</td>
+                    
+
+
+
+                </tr>
+            }
+        </tbody>
+    </table>
+    <div class="add_delete_toolbar" />
+</div>
+
+
+@section endscripts{
+
+    <script language="javascript" type="text/javascript">
+
+
+
+        $(document).ready(function () {
+           
+            $("#btnDeleteRow").html('حذف سند')
+        
+
+        });
+
+    </script>
+
+}

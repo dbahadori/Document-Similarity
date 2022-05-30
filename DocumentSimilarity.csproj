@@ -1,0 +1,819 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{80BD8266-9E87-4E4D-908E-70324C51379E}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DocumentSimilarity</RootNamespace>
+    <AssemblyName>DocumentSimilarity</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <IncludeIisSettings>true</IncludeIisSettings>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.5.5631.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\DocumentFormat.OpenXml.2.5\lib\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="DocX">
+      <HintPath>..\packages\DocX.1.0.0.19\lib\net40\DocX.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib">
+      <HintPath>..\packages\SharpZipLib.0.86.0\lib\20\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.AWT.WinForms">
+      <HintPath>..\packages\IKVM.7.4.5196.0\lib\IKVM.AWT.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Beans">
+      <HintPath>..\packages\IKVM.7.4.5196.0\lib\IKVM.OpenJDK.Beans.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Charsets">
+      <HintPath>..\packages\IKVM.7.4.5196.0\lib\IKVM.OpenJDK.Charsets.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Corba">
+      <HintPath>..\packages\IKVM.7.4.5196.0\lib\IKVM.OpenJDK.Corba.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Core">
+      <HintPath>..\packages\IKVM.7.4.5196.0\lib\IKVM.OpenJDK.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Jdbc">
+      <HintPath>..\packages\IKVM.7.4.5196.0\lib\IKVM.OpenJDK.Jdbc.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Management">
+      <HintPath>..\packages\IKVM.7.4.5196.0\lib\IKVM.OpenJDK.Management.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Media">
+      <HintPath>..\packages\IKVM.7.4.5196.0\lib\IKVM.OpenJDK.Media.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Misc">
+      <HintPath>..\packages\IKVM.7.4.5196.0\lib\IKVM.OpenJDK.Misc.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Naming">
+      <HintPath>..\packages\IKVM.7.4.5196.0\lib\IKVM.OpenJDK.Naming.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Remoting">
+      <HintPath>..\packages\IKVM.7.4.5196.0\lib\IKVM.OpenJDK.Remoting.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Security">
+      <HintPath>..\packages\IKVM.7.4.5196.0\lib\IKVM.OpenJDK.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.SwingAWT">
+      <HintPath>..\packages\IKVM.7.4.5196.0\lib\IKVM.OpenJDK.SwingAWT.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Text">
+      <HintPath>..\packages\IKVM.7.4.5196.0\lib\IKVM.OpenJDK.Text.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Tools">
+      <HintPath>..\packages\IKVM.7.4.5196.0\lib\IKVM.OpenJDK.Tools.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.Util">
+      <HintPath>..\packages\IKVM.7.4.5196.0\lib\IKVM.OpenJDK.Util.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.XML.API">
+      <HintPath>..\packages\IKVM.7.4.5196.0\lib\IKVM.OpenJDK.XML.API.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.XML.Bind">
+      <HintPath>..\packages\IKVM.7.4.5196.0\lib\IKVM.OpenJDK.XML.Bind.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.XML.Crypto">
+      <HintPath>..\packages\IKVM.7.4.5196.0\lib\IKVM.OpenJDK.XML.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.XML.Parse">
+      <HintPath>..\packages\IKVM.7.4.5196.0\lib\IKVM.OpenJDK.XML.Parse.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.XML.Transform">
+      <HintPath>..\packages\IKVM.7.4.5196.0\lib\IKVM.OpenJDK.XML.Transform.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.XML.WebServices">
+      <HintPath>..\packages\IKVM.7.4.5196.0\lib\IKVM.OpenJDK.XML.WebServices.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.XML.XPath">
+      <HintPath>..\packages\IKVM.7.4.5196.0\lib\IKVM.OpenJDK.XML.XPath.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.Runtime">
+      <HintPath>..\packages\IKVM.7.4.5196.0\lib\IKVM.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.Runtime.JNI">
+      <HintPath>..\packages\IKVM.7.4.5196.0\lib\IKVM.Runtime.JNI.dll</HintPath>
+    </Reference>
+    <Reference Include="liblinear-1.8">
+      <HintPath>..\packages\MaltParser.1.8.0.0\lib\liblinear-1.8.dll</HintPath>
+    </Reference>
+    <Reference Include="libsvm">
+      <HintPath>..\packages\MaltParser.1.8.0.0\lib\libsvm.dll</HintPath>
+    </Reference>
+    <Reference Include="log4j">
+      <HintPath>..\packages\MaltParser.1.8.0.0\lib\log4j.dll</HintPath>
+    </Reference>
+    <Reference Include="Lucene.Net">
+      <HintPath>..\packages\Lucene.Net.3.0.3\lib\NET40\Lucene.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="Lucene.Net.Contrib.Analyzers, Version=3.0.3.0, Culture=neutral, PublicKeyToken=85089178b9ac3181, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Lucene.Net.Contrib.3.0.3\lib\net40\Lucene.Net.Contrib.Analyzers.dll</HintPath>
+    </Reference>
+    <Reference Include="Lucene.Net.Contrib.Analyzers.3.0.3.0.Fakes">
+      <HintPath>FakesAssemblies\Lucene.Net.Contrib.Analyzers.3.0.3.0.Fakes.dll</HintPath>
+    </Reference>
+    <Reference Include="Lucene.Net.Contrib.Core, Version=3.0.3.0, Culture=neutral, PublicKeyToken=85089178b9ac3181, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Lucene.Net.Contrib.3.0.3\lib\net40\Lucene.Net.Contrib.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Lucene.Net.Contrib.FastVectorHighlighter, Version=3.0.3.0, Culture=neutral, PublicKeyToken=85089178b9ac3181, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Lucene.Net.Contrib.3.0.3\lib\net40\Lucene.Net.Contrib.FastVectorHighlighter.dll</HintPath>
+    </Reference>
+    <Reference Include="Lucene.Net.Contrib.Highlighter, Version=2.3.2.1, Culture=neutral, PublicKeyToken=85089178b9ac3181, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Lucene.Net.Contrib.3.0.3\lib\net40\Lucene.Net.Contrib.Highlighter.dll</HintPath>
+    </Reference>
+    <Reference Include="Lucene.Net.Contrib.Memory, Version=1.0.0.0, Culture=neutral, PublicKeyToken=85089178b9ac3181, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Lucene.Net.Contrib.3.0.3\lib\net40\Lucene.Net.Contrib.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="Lucene.Net.Contrib.Queries, Version=3.0.3.0, Culture=neutral, PublicKeyToken=85089178b9ac3181, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Lucene.Net.Contrib.3.0.3\lib\net40\Lucene.Net.Contrib.Queries.dll</HintPath>
+    </Reference>
+    <Reference Include="Lucene.Net.Contrib.Regex, Version=3.0.3.0, Culture=neutral, PublicKeyToken=85089178b9ac3181, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Lucene.Net.Contrib.3.0.3\lib\net40\Lucene.Net.Contrib.Regex.dll</HintPath>
+    </Reference>
+    <Reference Include="Lucene.Net.Contrib.SimpleFacetedSearch, Version=3.0.3.0, Culture=neutral, PublicKeyToken=85089178b9ac3181, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Lucene.Net.Contrib.3.0.3\lib\net40\Lucene.Net.Contrib.SimpleFacetedSearch.dll</HintPath>
+    </Reference>
+    <Reference Include="Lucene.Net.Contrib.Snowball, Version=2.0.0.1, Culture=neutral, PublicKeyToken=85089178b9ac3181, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Lucene.Net.Contrib.3.0.3\lib\net40\Lucene.Net.Contrib.Snowball.dll</HintPath>
+    </Reference>
+    <Reference Include="Lucene.Net.Contrib.SpellChecker, Version=3.0.3.0, Culture=neutral, PublicKeyToken=85089178b9ac3181, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Lucene.Net.Contrib.3.0.3\lib\net40\Lucene.Net.Contrib.SpellChecker.dll</HintPath>
+    </Reference>
+    <Reference Include="maltparser-1.8">
+      <HintPath>..\packages\MaltParser.1.8.0.0\lib\maltparser-1.8.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.QualityTools.Testing.Fakes, Version=11.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Mvc.JQuery.DataTables">
+      <HintPath>..\packages\Mvc.JQuery.DataTables.1.3.42\lib\net45\Mvc.JQuery.DataTables.dll</HintPath>
+    </Reference>
+    <Reference Include="Mvc.JQuery.DataTables.Core">
+      <HintPath>..\packages\Mvc.JQuery.DataTables.Core.1.3.42\lib\net45\Mvc.JQuery.DataTables.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NHazm, Version=2.0.0.35252, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\NHazm.dll</HintPath>
+    </Reference>
+    <Reference Include="NLog">
+      <HintPath>..\packages\NLog.4.3.7\lib\net45\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="Office, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>bin\Office.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="stanford-postagger">
+      <HintPath>..\packages\Stanford.NLP.POSTagger.3.3.1.1\lib\stanford-postagger.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.1\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.1.0.0\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.1.0.0\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.1.0.0\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.2.0.0\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.2.0.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.2.0.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.2.0.0\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.2.0.0\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.2.0.0\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.2.0.0\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.2.0.0\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.2.0.0\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="BLL\AuthorBLL.cs" />
+    <Compile Include="BLL\Enums.cs" />
+    <Compile Include="BLL\Parser.cs" />
+    <Compile Include="BLL\Preprocessing.cs" />
+    <Compile Include="BLL\ResearchDocumentBLL.cs" />
+    <Compile Include="BLL\SearchEngine.cs" />
+    <Compile Include="BLL\Services\SearchService.cs" />
+    <Compile Include="BLL\Services\SimilarityService.cs" />
+    <Compile Include="BLL\Timer.cs" />
+    <Compile Include="BLL\XMLEngine.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201608270700203_author.cs" />
+    <Compile Include="Migrations\201608270700203_author.Designer.cs">
+      <DependentUpon>201608270700203_author.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201608270704566_author1.cs" />
+    <Compile Include="Migrations\201608270704566_author1.Designer.cs">
+      <DependentUpon>201608270704566_author1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\ResearchDocument.cs" />
+    <Compile Include="Models\Author.cs" />
+    <Compile Include="Models\ResearchDocumentResult.cs" />
+    <Compile Include="Models\Search.cs" />
+    <Compile Include="Models\Services\ResearchDocumentService.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Data\aspnet-DocumentSimilarity-20160402030922.mdf" />
+    <Content Include="App_Data\aspnet-DocumentSimilarity-20160402030922_log.ldf">
+      <DependentUpon>aspnet-DocumentSimilarity-20160402030922.mdf</DependentUpon>
+    </Content>
+    <Content Include="bin\Antlr3.Runtime.dll" />
+    <Content Include="bin\DocumentFormat.OpenXml.dll" />
+    <Content Include="bin\DocX.dll" />
+    <Content Include="bin\EntityFramework.dll" />
+    <Content Include="bin\EntityFramework.SqlServer.dll" />
+    <Content Include="bin\ICSharpCode.SharpZipLib.dll" />
+    <Content Include="bin\IKVM.AWT.WinForms.dll" />
+    <Content Include="bin\IKVM.OpenJDK.Beans.dll" />
+    <Content Include="bin\IKVM.OpenJDK.Charsets.dll" />
+    <Content Include="bin\IKVM.OpenJDK.Corba.dll" />
+    <Content Include="bin\IKVM.OpenJDK.Core.dll" />
+    <Content Include="bin\IKVM.OpenJDK.Jdbc.dll" />
+    <Content Include="bin\IKVM.OpenJDK.Management.dll" />
+    <Content Include="bin\IKVM.OpenJDK.Media.dll" />
+    <Content Include="bin\IKVM.OpenJDK.Misc.dll" />
+    <Content Include="bin\IKVM.OpenJDK.Naming.dll" />
+    <Content Include="bin\IKVM.OpenJDK.Remoting.dll" />
+    <Content Include="bin\IKVM.OpenJDK.Security.dll" />
+    <Content Include="bin\IKVM.OpenJDK.SwingAWT.dll" />
+    <Content Include="bin\IKVM.OpenJDK.Text.dll" />
+    <Content Include="bin\IKVM.OpenJDK.Tools.dll" />
+    <Content Include="bin\IKVM.OpenJDK.Util.dll" />
+    <Content Include="bin\IKVM.OpenJDK.XML.API.dll" />
+    <Content Include="bin\IKVM.OpenJDK.XML.Bind.dll" />
+    <Content Include="bin\IKVM.OpenJDK.XML.Crypto.dll" />
+    <Content Include="bin\IKVM.OpenJDK.XML.Parse.dll" />
+    <Content Include="bin\IKVM.OpenJDK.XML.Transform.dll" />
+    <Content Include="bin\IKVM.OpenJDK.XML.WebServices.dll" />
+    <Content Include="bin\IKVM.OpenJDK.XML.XPath.dll" />
+    <Content Include="bin\IKVM.Runtime.dll" />
+    <Content Include="bin\IKVM.Runtime.JNI.dll" />
+    <Content Include="bin\liblinear-1.8.dll" />
+    <Content Include="bin\libsvm.dll" />
+    <Content Include="bin\log4j.dll" />
+    <Content Include="bin\Lucene.Net.Contrib.Analyzers.3.0.3.0.Fakes.dll" />
+    <Content Include="bin\Lucene.Net.Contrib.Analyzers.dll" />
+    <Content Include="bin\Lucene.Net.Contrib.Core.dll" />
+    <Content Include="bin\Lucene.Net.Contrib.FastVectorHighlighter.dll" />
+    <Content Include="bin\Lucene.Net.Contrib.Highlighter.dll" />
+    <Content Include="bin\Lucene.Net.Contrib.Memory.dll" />
+    <Content Include="bin\Lucene.Net.Contrib.Queries.dll" />
+    <Content Include="bin\Lucene.Net.Contrib.Regex.dll" />
+    <Content Include="bin\Lucene.Net.Contrib.SimpleFacetedSearch.dll" />
+    <Content Include="bin\Lucene.Net.Contrib.Snowball.dll" />
+    <Content Include="bin\Lucene.Net.Contrib.SpellChecker.dll" />
+    <Content Include="bin\Lucene.Net.dll" />
+    <Content Include="bin\maltparser-1.8.dll" />
+    <Content Include="bin\Microsoft.AspNet.Identity.Core.dll" />
+    <Content Include="bin\Microsoft.AspNet.Identity.EntityFramework.dll" />
+    <Content Include="bin\Microsoft.AspNet.Identity.Owin.dll" />
+    <Content Include="bin\Microsoft.Owin.dll" />
+    <Content Include="bin\Microsoft.Owin.Host.SystemWeb.dll" />
+    <Content Include="bin\Microsoft.Owin.Security.Cookies.dll" />
+    <Content Include="bin\Microsoft.Owin.Security.dll" />
+    <Content Include="bin\Microsoft.Owin.Security.Facebook.dll" />
+    <Content Include="bin\Microsoft.Owin.Security.Google.dll" />
+    <Content Include="bin\Microsoft.Owin.Security.MicrosoftAccount.dll" />
+    <Content Include="bin\Microsoft.Owin.Security.OAuth.dll" />
+    <Content Include="bin\Microsoft.Owin.Security.Twitter.dll" />
+    <Content Include="bin\Microsoft.QualityTools.Testing.Fakes.dll" />
+    <Content Include="bin\Microsoft.Web.Infrastructure.dll" />
+    <Content Include="bin\Mvc.JQuery.DataTables.Core.dll" />
+    <Content Include="bin\Mvc.JQuery.DataTables.dll" />
+    <Content Include="bin\Newtonsoft.Json.dll" />
+    <Content Include="bin\NHazm.dll" />
+    <Content Include="bin\Owin.dll" />
+    <Content Include="bin\PagedList.dll" />
+    <Content Include="bin\PagedList.Mvc.dll" />
+    <Content Include="bin\stanford-postagger.dll" />
+    <Content Include="bin\System.Web.Helpers.dll" />
+    <Content Include="bin\System.Web.Mvc.dll" />
+    <Content Include="bin\System.Web.Optimization.dll" />
+    <Content Include="bin\System.Web.Razor.dll" />
+    <Content Include="bin\System.Web.WebPages.Deployment.dll" />
+    <Content Include="bin\System.Web.WebPages.dll" />
+    <Content Include="bin\System.Web.WebPages.Razor.dll" />
+    <Content Include="bin\WebGrease.dll" />
+    <Content Include="BLL\Services\XMLFile1.xml" />
+    <Content Include="Content\authentication\change-password.css" />
+    <Content Include="Content\bootstrap-fileinput\css\fileinput.css" />
+    <Content Include="Content\bootstrap-fileinput\css\fileinput.min.css" />
+    <Content Include="Content\bootstrap-fileinput\img\loading-sm.gif" />
+    <Content Include="Content\bootstrap-fileinput\img\loading.gif" />
+    <Content Include="Content\bootstrap-select\bootstrap-select.css" />
+    <Content Include="Content\bootstrap-select\bootstrap-select.min.css" />
+    <Content Include="Content\DataTableContent\dataTables\demo_page.css" />
+    <Content Include="Content\DataTableContent\dataTables\demo_table.css" />
+    <Content Include="Content\DataTableContent\dataTables\demo_table_jui.css" />
+    <Content Include="Content\DataTableContent\images\back_disabled.jpg" />
+    <Content Include="Content\DataTableContent\images\back_enabled.jpg" />
+    <Content Include="Content\DataTableContent\images\favicon.ico" />
+    <Content Include="Content\DataTableContent\images\forward_disabled.jpg" />
+    <Content Include="Content\DataTableContent\images\forward_enabled.jpg" />
+    <Content Include="Content\DataTableContent\images\sort_asc.png" />
+    <Content Include="Content\DataTableContent\images\sort_asc_disabled.png" />
+    <Content Include="Content\DataTableContent\images\sort_both.png" />
+    <Content Include="Content\DataTableContent\images\sort_desc.png" />
+    <Content Include="Content\DataTableContent\images\sort_desc_disabled.png" />
+    <Content Include="Content\DataTableContent\jAlert\jquery.alerts.css" />
+    <Content Include="Content\DataTableContent\jAlert\jquery.alerts.js" />
+    <Content Include="Content\bootstrap-select\bootstrap-select.css.map" />
+    <None Include="Content\DataTableContent\localization\persian.json" />
+    <Content Include="Content\DataTableContent\Site.css" />
+    <Content Include="Content\DataTableContent\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\DataTableContent\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\DataTableContent\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\DataTableContent\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\DataTableContent\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\DataTableContent\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\DataTableContent\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\DataTableContent\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\DataTableContent\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\DataTableContent\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\DataTableContent\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\DataTableContent\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\DataTableContent\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\DataTableContent\themes\base\jquery-ui.css" />
+    <Content Include="Content\DataTableContent\themes\smoothness\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\DataTableContent\themes\smoothness\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\DataTableContent\themes\smoothness\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\DataTableContent\themes\smoothness\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\DataTableContent\themes\smoothness\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\DataTableContent\themes\smoothness\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\DataTableContent\themes\smoothness\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\DataTableContent\themes\smoothness\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\DataTableContent\themes\smoothness\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\DataTableContent\themes\smoothness\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\DataTableContent\themes\smoothness\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\DataTableContent\themes\smoothness\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\DataTableContent\themes\smoothness\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\DataTableContent\themes\smoothness\jquery-ui-1.7.2.custom.css" />
+    <Content Include="Content\font-awesome.css" />
+    <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\fonts\fonts-fa.css" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\form\panel.css" />
+    <Content Include="Content\jquery-datatables-column-filter\jquery-ui-timepicker-addon.css" />
+    <Content Include="Content\jquery-datatables-column-filter\jquery-ui-timepicker-addon.js" />
+    <Content Include="Content\jquery-datatables-column-filter\media\css\demo_page.css" />
+    <Content Include="Content\jquery-datatables-column-filter\media\css\demo_table.css" />
+    <Content Include="Content\jquery-datatables-column-filter\media\css\demo_table_jui.css" />
+    <Content Include="Content\jquery-datatables-column-filter\media\css\demo_validation.css" />
+    <Content Include="Content\jquery-datatables-column-filter\media\css\jquery.multiselect.css" />
+    <Content Include="Content\jquery-datatables-column-filter\media\css\site_jui.ccss.css" />
+    <Content Include="Content\jquery-datatables-column-filter\media\css\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\jquery-datatables-column-filter\media\css\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\jquery-datatables-column-filter\media\css\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\jquery-datatables-column-filter\media\css\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\jquery-datatables-column-filter\media\css\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\jquery-datatables-column-filter\media\css\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\jquery-datatables-column-filter\media\css\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\jquery-datatables-column-filter\media\css\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\jquery-datatables-column-filter\media\css\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\jquery-datatables-column-filter\media\css\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\jquery-datatables-column-filter\media\css\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\jquery-datatables-column-filter\media\css\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\jquery-datatables-column-filter\media\css\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\jquery-datatables-column-filter\media\css\themes\base\jquery-ui.css" />
+    <Content Include="Content\jquery-datatables-column-filter\media\images\back_disabled.jpg" />
+    <Content Include="Content\jquery-datatables-column-filter\media\images\back_disabled.png" />
+    <Content Include="Content\jquery-datatables-column-filter\media\images\back_enabled.jpg" />
+    <Content Include="Content\jquery-datatables-column-filter\media\images\back_enabled.png" />
+    <Content Include="Content\jquery-datatables-column-filter\media\images\DataTables.jpg" />
+    <Content Include="Content\jquery-datatables-column-filter\media\images\favicon.ico" />
+    <Content Include="Content\jquery-datatables-column-filter\media\images\forward_disabled.jpg" />
+    <Content Include="Content\jquery-datatables-column-filter\media\images\forward_disabled.png" />
+    <Content Include="Content\jquery-datatables-column-filter\media\images\forward_enabled.jpg" />
+    <Content Include="Content\jquery-datatables-column-filter\media\images\forward_enabled.png" />
+    <Content Include="Content\jquery-datatables-column-filter\media\images\sort_asc.png" />
+    <Content Include="Content\jquery-datatables-column-filter\media\images\sort_asc_disabled.png" />
+    <Content Include="Content\jquery-datatables-column-filter\media\images\sort_both.png" />
+    <Content Include="Content\jquery-datatables-column-filter\media\images\sort_desc.png" />
+    <Content Include="Content\jquery-datatables-column-filter\media\images\sort_desc_disabled.png" />
+    <Content Include="Content\jquery-datatables-column-filter\media\images\unchecked.gif" />
+    <Content Include="Content\jquery-datatables-column-filter\media\js\jquery.dataTables.columnFilter.css" />
+    <Content Include="Content\jquery-datatables-column-filter\media\js\jquery.dataTables.columnFilter.js" />
+    <Content Include="Content\jquery-datatables-column-filter\media\js\jquery.multiselect.js" />
+    <Content Include="Content\menu\styles.css" />
+    <Content Include="Content\PagedList.css" />
+    <Content Include="Content\form\advance-search.css" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Content\startbootstrap-sb-admin\font-awesome.css" />
+    <Content Include="Content\startbootstrap-sb-admin\font-awesome.min.css" />
+    <Content Include="Content\startbootstrap-sb-admin\metisMenu.css" />
+    <Content Include="Content\startbootstrap-sb-admin\metisMenu.min.css" />
+    <Content Include="Content\startbootstrap-sb-admin\morris.css" />
+    <Content Include="Content\startbootstrap-sb-admin\sb-admin-2.css" />
+    <Content Include="Content\startbootstrap-sb-admin\timeline.css" />
+    <Content Include="Data\conllx.xml" />
+    <Content Include="Documents\StopWords\PersianStopWords.txt" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Images\changepassword1.png" />
+    <Content Include="Images\changepassword2.jpg" />
+    <Content Include="Images\header.png" />
+    <Content Include="Images\header2.png" />
+    <Content Include="Images\plagiarism.jpg" />
+    <Content Include="Resources\WBS.docx" />
+    <Content Include="Documents\travel3.doc" />
+    <Content Include="Documents\document1.doc" />
+    <Content Include="Documents\document2.doc" />
+    <Content Include="Documents\document3.doc" />
+    <Content Include="Documents\document4.doc" />
+    <Content Include="Documents\document5.doc" />
+    <Content Include="Documents\document6.doc" />
+    <Content Include="Documents\document7.doc" />
+    <Content Include="Documents\document8.doc" />
+    <Content Include="Documents\test.doc" />
+    <Fakes Include="Fakes\Lucene.Net.Contrib.Analyzers.fakes" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Scripts\bootstrap-select\bootstrap-select.js" />
+    <Content Include="Scripts\bootstrap-select\bootstrap-select.min.js" />
+    <Content Include="Scripts\bootstrap-select\defaults-fa_IR.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\DataTable\jquery-1.4.4.min.js" />
+    <Content Include="Scripts\DataTable\jquery-ui.js" />
+    <Content Include="Scripts\DataTable\jquery.dataTables.editable.js" />
+    <Content Include="Scripts\DataTable\jquery.dataTables.js" />
+    <Content Include="Scripts\DataTable\jquery.dataTables.min.js" />
+    <Content Include="Scripts\DataTable\jquery.jeditable.js" />
+    <Content Include="Scripts\DataTable\jquery.validate.js" />
+    <Content Include="Scripts\fileinput.js" />
+    <Content Include="Scripts\fileinput.min.js" />
+    <Content Include="Scripts\fileinput_locale_ar.js" />
+    <Content Include="Scripts\fileinput_locale_bg.js" />
+    <Content Include="Scripts\fileinput_locale_ca.js" />
+    <Content Include="Scripts\fileinput_locale_cr.js" />
+    <Content Include="Scripts\fileinput_locale_cz.js" />
+    <Content Include="Scripts\fileinput_locale_da.js" />
+    <Content Include="Scripts\fileinput_locale_de.js" />
+    <Content Include="Scripts\fileinput_locale_el.js" />
+    <Content Include="Scripts\fileinput_locale_es.js" />
+    <Content Include="Scripts\fileinput_locale_fa1.js" />
+    <Content Include="Scripts\fileinput_locale_fa2.js" />
+    <Content Include="Scripts\fileinput_locale_fi.js" />
+    <Content Include="Scripts\fileinput_locale_fr.js" />
+    <Content Include="Scripts\fileinput_locale_hu.js" />
+    <Content Include="Scripts\fileinput_locale_id.js" />
+    <Content Include="Scripts\fileinput_locale_it.js" />
+    <Content Include="Scripts\fileinput_locale_ja.js" />
+    <Content Include="Scripts\fileinput_locale_LANG.js" />
+    <Content Include="Scripts\fileinput_locale_nl.js" />
+    <Content Include="Scripts\fileinput_locale_pl.js" />
+    <Content Include="Scripts\fileinput_locale_pt-BR.js" />
+    <Content Include="Scripts\fileinput_locale_pt.js" />
+    <Content Include="Scripts\fileinput_locale_ro.js" />
+    <Content Include="Scripts\fileinput_locale_ru.js" />
+    <Content Include="Scripts\fileinput_locale_sk.js" />
+    <Content Include="Scripts\fileinput_locale_th.js" />
+    <Content Include="Scripts\fileinput_locale_tr.js" />
+    <Content Include="Scripts\fileinput_locale_uk.js" />
+    <Content Include="Scripts\fileinput_locale_zh-TW.js" />
+    <Content Include="Scripts\fileinput_locale_zh.js" />
+    <Content Include="Scripts\form\panel.js" />
+    <Content Include="Scripts\startbootstrap-sb-admin\bootstrap.min.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\startbootstrap-sb-admin\jquery.min.js" />
+    <Content Include="Scripts\menu\script.js" />
+    <Content Include="Scripts\startbootstrap-sb-admin\metisMenu.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\startbootstrap-sb-admin\metisMenu.min.js" />
+    <Content Include="Scripts\startbootstrap-sb-admin\morris-data.js" />
+    <Content Include="Scripts\startbootstrap-sb-admin\morris.js" />
+    <Content Include="Scripts\startbootstrap-sb-admin\morris.min.js" />
+    <Content Include="Scripts\startbootstrap-sb-admin\raphael-min.js" />
+    <Content Include="Scripts\startbootstrap-sb-admin\raphael.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\startbootstrap-sb-admin\sb-admin-2.js" />
+    <Content Include="Scripts\typings\jquery\jquery.d.ts" />
+    <Content Include="Content\fonts\YekanWeb-Regular.woff" />
+    <Content Include="Content\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\fonts\FontAwesome.otf" />
+    <Content Include="Content\DataTableContent\images\Sorting icons.psd" />
+    <Content Include="Scripts\bootstrap-select\bootstrap-select.js.map" />
+    <Content Include="Data\posMaps.dat" />
+    <Content Include="Data\verbs.dat" />
+    <Content Include="Data\words.dat" />
+    <Content Include="NLog.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="NLog.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\PublishProfiles\myprofile.pubxml" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Scripts\_references.js" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\AdvanceSearchDisplay.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\DocumentsDisplay.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\Search.cshtml" />
+    <Content Include="Views\Home\Similarity-1.cshtml" />
+    <Content Include="Views\Home\Similarity.cshtml" />
+    <Content Include="Views\Home\SimilarityShow.cshtml" />
+    <Content Include="Views\Home\test.cshtml" />
+    <Content Include="Views\Home\UploadDocument.cshtml" />
+    <Content Include="Views\Home\_DocumentRow.cshtml" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Account\_ChangePasswordPartial.cshtml" />
+    <Content Include="Views\Account\_RemoveAccountPartial.cshtml" />
+    <Content Include="Views\Account\_SetPasswordPartial.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Manage.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Home\AdvanceSearch.cshtml" />
+    <Content Include="Views\Home\Display.cshtml" />
+    <Content Include="Views\Home\SimilarityDisplay.cshtml" />
+    <Content Include="Views\Home\_SearchDocumentRow.cshtml" />
+    <Content Include="Views\Home\_SimilarityDocumentRow.cshtml" />
+    <Content Include="Views\Home\Configuration.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Documents\LuceneDirectory\" />
+    <Folder Include="Documents\Word\Structural\" />
+    <Folder Include="Documents\Word\Unstructural\" />
+    <Folder Include="Documents\XML\" />
+    <Folder Include="New folder\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="packages.config" />
+    <None Include="Project_Readme.html" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>7</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Word">
+      <Guid>{00020905-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>8</VersionMajor>
+      <VersionMinor>6</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201608270700203_author.resx">
+      <DependentUpon>201608270700203_author.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608270704566_author1.resx">
+      <DependentUpon>201608270704566_author1.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>6887</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:6887/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

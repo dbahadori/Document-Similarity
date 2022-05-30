@@ -1,0 +1,245 @@
+﻿<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+   
+
+    <!-- MetisMenu CSS -->
+    <link href="~/Content/startbootstrap-sb-admin/metisMenu.min.css" rel="stylesheet" />
+    <!-- Timeline CSS -->
+    <link href="~/Content/startbootstrap-sb-admin/timeline.css" rel="stylesheet" />
+    <!-- Custom CSS -->
+    <link href="~/Content/startbootstrap-sb-admin/sb-admin-2.css" rel="stylesheet" />
+    <!-- Morris Charts CSS -->
+    <link href="~/Content/startbootstrap-sb-admin/morris.css" rel="stylesheet" />
+    <!-- Custom Fonts -->
+    <link href="~/Content/fonts/fonts-fa.css" rel="stylesheet" />
+    <link href="~/Content/font-awesome.css" rel="stylesheet" />
+    <link href="~/Content/menu/styles.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-fileinput/css/fileinput.css" rel="stylesheet" />
+    <link href="~/Content/form/advance-search.css" rel="stylesheet" />
+    <!--for data table-->
+    <link href="~/Content/DataTableContent/dataTables/demo_page.css" rel="stylesheet" />
+    <link href="~/Content/DataTableContent/dataTables/demo_table.css" rel="stylesheet" />
+    <link href="~/Content/DataTableContent/dataTables/demo_table_jui.css" rel="stylesheet" />
+    <link href="~/Content/DataTableContent/themes/smoothness/jquery-ui-1.7.2.custom.css" rel="stylesheet" />
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <!-- Bootstrap Core CSS -->
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+
+    <!-- bootstrap select-->
+
+    <link href="~/Content/bootstrap-select/bootstrap-select.min.css" rel="stylesheet" />
+
+
+
+</head>
+<body>
+   
+     <header style="text-align:center">
+
+         <img src="/Images/header2.png" class="img-rounded" style="border: medium outset; width: -moz-available; height: -moz-available;">
+         </header>
+    
+   
+
+            
+           
+    <div id="wrapper" dir="rtl">
+        <!-- Navigation -->
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0px;">
+            <div class="navbar-header navbar-right">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("وب سایت فاوا اجا", "Index", "Home", null, new { @class = "navbar-brand" , style="font-family:WYekan;"})      
+                  </div>
+            <!-- /.navbar-header -->
+            <ul class="nav navbar-top-links navbar-left">
+
+                        @if (Request.IsAuthenticated)
+                        {
+                            <li class="dropdown">
+
+                                <i class="fa " style="color:blue"></i>
+                                <span style="color:blue">
+                                    کاربر گرامی <span style="color:red;font-stretch:wider">@User.Identity.Name</span>   خوش آمدید!
+                                </span>
+                                </li>
+                        }
+
+                    
+                <li class="dropdown ">
+                    <a aria-expanded="false" class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+
+                        @Html.Partial("_LoginPartial")
+
+                    </ul>
+                    <!-- /.dropdown-user -->
+                </li>
+                <!-- /.dropdown -->
+            </ul>
+            <!-- /.navbar-top-links -->
+            <div class="navbar-default sidebar" role="navigation" >
+                <div class="sidebar-nav navbar-collapse">
+                    <ul class="nav" id="side-menu" style="font-family:inherit">
+@using (Html.BeginForm("AdvanceSearch", "Home",FormMethod.Post,new { enctype = "multipart/form-data"}))
+{
+                        <li class="sidebar-search">
+                            <div class="input-group custom-search-form" dir="ltr">
+                                <input class="form-control" dir="rtl" name="OverallContenttxt" placeholder="...جستجو در کل سند" type="text">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default" type="submit">
+                                        <i class="fa fa-search"></i>
+                                    </button>
+                                </span>
+                            </div>
+                            <!-- /input-group -->
+                        </li>
+}
+                        <li class="">
+                            <a href="#"><i class="fa fa-book fa-fw"></i> مديريت اسناد 	<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level collapse">
+                                <li>
+                                    <a href="@Url.Action("Display", "Home")">
+                                         <span style="font-family:WYekan">نمايش اسناد 	 </span>
+
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("UploadDocument", "Home")">
+                                        <span style="font-family: WYekan">اضافه کردن سند جديد به مخزن 	 </span>
+
+
+                                    </a>
+                                </li>
+
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Similarity", "Home")"><i class="fa fa-files-o">&nbsp;</i>تشابه اسناد </a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("AdvanceSearch", "Home")"><i class="fa fa-search">&nbsp;</i>جستجو پیشرفته 	</a>
+
+                        </li>
+                        
+
+                        
+                        <li>
+                            <a href="#"><i class="fa fa-user fa-fw"></i> مدیریت حساب کاربری<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level collapse">
+                                @Html.Partial("_LoginPartial")
+
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                       @if (User.Identity.Name == "Admin")
+                        { <li>
+                            <a href="@Url.Action("Configuration", "Home")"><i class="fa fa-cog">&nbsp;</i>تنظیمات </a>
+                        </li> }
+
+                       
+                    </ul>
+                </div>
+                <!-- /.sidebar-collapse -->
+            </div>
+            <!-- /.navbar-static-side -->
+        </nav>
+        <div style="min-height: 298px; margin: 0px 250px 0px 0px;" id="page-wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header" style="font-family:WYekan">معاونت ارتباطات و فناوری اطلاعات ارتش جمهوری اسلامی ایران</h1>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+            
+            <!-- /.row -->
+            <div class="row">
+                
+                <!-- /.col-lg-12 -->
+                <div class="col-lg-12">
+
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <i id="tab-header-icon" class="fa fa-3x" ></i><h4 style="font-family:WYekan; align-content:center" > @ViewBag.Title</h4>
+                            
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <div id="morris-area-chart">
+                                @RenderBody()
+                            </div>
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+
+
+                </div>
+                <!-- /.col-lg-4 -->
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /#page-wrapper -->
+    </div>
+    <!-- /#wrapper -->
+   
+
+    <div class="container body-content">
+
+        <hr />
+        <footer style="font-family:WYekan">
+            <p>&copy; @DateTime.Now.Year - فاوا اجا </p>
+            
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+
+
+    <script src="~/Scripts/startbootstrap-sb-admin/bootstrap.min.js"></script>
+    <script src="~/Scripts/startbootstrap-sb-admin/metisMenu.min.js"></script>
+    <script src="~/Scripts/startbootstrap-sb-admin/raphael-min.js"></script>
+    <script src="~/Scripts/startbootstrap-sb-admin/morris.min.js"></script>
+    <script src="~/Scripts/startbootstrap-sb-admin/sb-admin-2.js"></script>
+  
+
+    <!--for data table-->
+    <script src="~/Scripts/DataTable/jquery.dataTables.js"></script>
+    <script src="~/Scripts/DataTable/jquery.jeditable.js"></script>
+    <script src="~/Scripts/DataTable/jquery-ui.js"></script>
+    <script src="~/Scripts/DataTable/jquery.validate.js"></script>
+    <script src="~/Scripts/DataTable/jquery.dataTables.editable.js"></script>
+
+    <!--bootstrap select-->
+    <script src="~/Scripts/bootstrap-select/bootstrap-select.js"></script>
+    <script src="~/Scripts/bootstrap-select/defaults-fa_IR.js"></script>
+
+    <script src="~/Scripts/fileinput.js"></script>
+    <script src="~/Scripts/fileinput_locale_fa1.js"></script>
+    <script src="~/Scripts/fileinput_locale_fa2.js"></script>
+
+
+    @RenderSection("scripts",false)
+    @RenderSection("endscripts", false)
+</body>
+</html>

@@ -1,0 +1,107 @@
+﻿
+@model Dictionary<int, DocumentSimilarity.Models.ResearchDocument>
+
+<script>
+    function AuthorName(id, name) {
+        var x = document.createElement("A");
+        var t = document.createTextNode(name + ", ");
+        x.appendChild(t);
+        document.getElementById(id).appendChild(x);
+
+    }
+    function SearchResultMessage(id, recordCount, searchString) {
+
+        var m = recordCount + "نتیجه برای  " + searchString + "جستجو شده است.";
+        var S = document.createElement("span");
+        S.className = "text-navy";
+        S.id = "message_span";
+        S.innerHTML = m;     
+        document.getElementById('message').appendChild(S);
+      
+    }
+
+</script>
+
+
+
+
+@foreach (var item in Model)
+{
+    
+
+
+
+
+    <div class="hr-line-dashed"></div>
+    <div class="search-result" style="font-family:WYekan">
+        <h3><a href="@item.Value.Title">@item.Value.Title </a>
+        </h3>
+        <h3>
+           نسبت تشابه:  @item.Value.Score %
+        </h3>
+        <div>نام سند : @item.Value.Name</div>
+        <div>کلمات کلیدی : @item.Value.Keywords</div>
+        <div id="@item.Value.Name">نام گردآورنده : </div>
+        <p>
+            @{
+                if (item.Value.Abstract.Length > 100)
+              {
+                  if (item.Value.Abstract.Length > 500)
+                  {
+                      var content = item.Value.Abstract.Substring(0, 480) + "....";
+                  @content 
+                  }
+                  else
+                  {
+                   @item.Value.Abstract    
+                  }
+                 
+              }
+              
+              else
+                {
+                    if (item.Value.Body.Length > 1000)
+                      {
+                           var content = item.Value.Body.Substring(0, 980) + "....";
+                           @content
+                      }
+                      else
+                      {
+                           @item.Value.Body 
+                      }
+                } 
+                  
+                }                      
+           
+                  
+                    
+          
+
+            
+            
+            
+            
+            
+        </p>
+
+        @foreach (var author in item.Value.Authors)
+        {
+            string id = @item.Value.Name;
+            string name = author.Name;
+            <script>
+
+                AuthorName('@id', '@name');
+            </script>
+        }
+
+        <div class="hr-line-dashed"></div>
+    </div>
+    <br/>
+}
+<script>
+
+    if (!(document.getElementById('message').children.length > 0)) {
+        SearchResultMessage('message', '@ViewBag.TotalNumberDocuments', '@ViewBag.SearchString');
+    }
+
+</script>

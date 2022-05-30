@@ -1,0 +1,139 @@
+﻿@{
+    ViewBag.Title = "About";
+}
+<!-- Start of LiveChat (www.livechatinc.com) code -->
+<script type="text/javascript">
+window.__lc = window.__lc || {};
+window.__lc.license = 9903470;
+(function() {
+  var lc = document.createElement('script'); lc.type = 'text/javascript'; lc.async = true;
+  lc.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'cdn.livechatinc.com/tracking.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(lc, s);
+})();
+</script>
+<!-- End of LiveChat code -->
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+
+<p>Use this area to provide additional information.</p>
+
+<div class="row">
+    <div class="col-md-4 col-md-offset-1 form-group">
+        <div class="input-group form-group" dir="ltr">
+            <select id="Titlecombo" disabled class="form-control dropdown-toggle" name="SearchFilterCombo">
+                <option value="0" selected="">حداق شامل یک کلمه از عبارت باشد</option>
+                <option value="1">شامل تمامی کلمات عبارت باشد</option>
+                <option value="2">شامل عین عبارت باشد</option>
+            </select>
+            <span class="input-group-addon" style="background-color:white;border:none">
+                <label aria-label="Checkbox for following text input">فیلتر شود بر اساس:</label>
+            </span>
+
+        </div>
+    </div>
+    <div class="col-md-5 col-md-offset-1 form-group">
+        <div class="input-group form-group" dir="ltr">
+            <input class="form-control" disabled="" id="Titletxt" placeholder="عنوان سند (مقاله/ پایان نامه) " dir="rtl" aria-label="Text input with radio button" type="text">
+            <span class="input-group-addon">
+                <input id="Title_check" onchange="return EnableDisableTXT(this)" aria-label="Checkbox for following text input" type="checkbox">
+            </span>
+
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-4 col-md-offset-1 form-group">
+        <div class="input-group form-group" dir="ltr">
+            <select id="Authorscombo" disabled class="form-control dropdown-toggle" name="SearchFilterCombo">
+                <option value="0" selected="">حداق شامل یک کلمه از عبارت باشد</option>
+                <option value="1">شامل تمامی کلمات عبارت باشد</option>
+                <option value="2">شامل عین عبارت باشد</option>
+            </select>
+            <span class="input-group-addon" style="background-color:white;border:none">
+                <label aria-label="Checkbox for following text input">فیلتر شود بر اساس:</label>
+            </span>
+
+        </div>
+    </div>
+    <div class="col-md-5 col-md-offset-1 form-group">
+        <div class="input-group form-group" dir="ltr">
+            <input class="form-control" disabled="" id="Authorstxt" placeholder="نام نگارنده " dir="rtl" aria-label="Text input with radio button" type="text">
+            <span class="input-group-addon">
+                <input type="checkbox" id="Authors_check" onchange="return EnableDisableTXT(this)" aria-label="Checkbox for following text input">
+            </span>
+
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-4 col-md-offset-1 form-group">
+        <div class="input-group form-group" dir="ltr">
+            <select id="Keywordscombo" disabled class="form-control dropdown-toggle" name="SearchFilterCombo">
+                <option value="0" selected="">حداق شامل یک کلمه از عبارت باشد</option>
+                <option value="1">شامل تمامی کلمات عبارت باشد</option>
+                <option value="2">شامل عین عبارت باشد</option>
+            </select>
+            <span class="input-group-addon" style="background-color:white;border:none">
+                <label aria-label="Checkbox for following text input">فیلتر شود بر اساس:</label>
+            </span>
+
+        </div>
+    </div>
+    <div class="col-md-5 col-md-offset-1 form-group">
+        <div class="input-group form-group" dir="ltr">
+            <input class="form-control" disabled="" id="Keywordstxt" placeholder="کلمات کلیدی" dir="rtl" aria-label="Text input with radio button" type="text">
+            <span class="input-group-addon">
+                <input type="checkbox" id="Keywords_check" onchange="return EnableDisableTXT(this)" aria-label="Checkbox for following text input">
+            </span>
+
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-4 col-md-offset-1 form-group">
+        <div class="input-group form-group" dir="ltr">
+            <select id="Yearcombo" disabled class="form-control dropdown-toggle" name="SearchFilterCombo">
+                <option value="0" selected="">حداق شامل یک کلمه از عبارت باشد</option>
+                <option value="1">شامل تمامی کلمات عبارت باشد</option>
+                <option value="2">شامل عین عبارت باشد</option>
+            </select>
+            <span class="input-group-addon" style="background-color:white;border:none">
+                <label aria-label="Checkbox for following text input">فیلتر شود بر اساس:</label>
+            </span>
+
+        </div>
+    </div>
+    <div class="col-md-5 col-md-offset-1 form-group">
+        <div class="input-group form-group" dir="ltr">
+            <input class="form-control" disabled="" id="Yeartxt" placeholder="سال انتشار" dir="rtl" aria-label="Text input with radio button" type="text">
+            <span class="input-group-addon">
+                <input type="checkbox" id="Year_check" onchange="return EnableDisableTXT(this)" aria-label="Checkbox for following text input">
+            </span>
+
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-4 col-md-offset-1 form-group">
+        <div class="input-group form-group" dir="ltr">
+            <select id="Abstractcombo" disabled class="form-control dropdown-toggle" name="SearchFilterCombo">
+                <option value="0" selected="">حداق شامل یک کلمه از عبارت باشد</option>
+                <option value="1">شامل تمامی کلمات عبارت باشد</option>
+                <option value="2">شامل عین عبارت باشد</option>
+            </select>
+            <span class="input-group-addon" style="background-color:white;border:none">
+                <label aria-label="Checkbox for following text input">فیلتر شود بر اساس:</label>
+            </span>
+
+        </div>
+    </div>
+    <div class="col-md-5 col-md-offset-1 form-group">
+        <div class="input-group form-group" dir="ltr">
+            <input class="form-control" disabled="" id="Abstracttxt" placeholder="چکیده" dir="rtl" aria-label="Text input with radio button" type="text">
+            <span class="input-group-addon">
+                <input type="checkbox" id="Abstract_check" onchange="return EnableDisableTXT(this)" aria-label="Checkbox for following text input">
+            </span>
+
+        </div>
+    </div>
+</div>

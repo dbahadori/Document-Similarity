@@ -1,0 +1,17 @@
+{
+    "sProcessing":   "œ—Õ«· Å—œ«“‘...",
+    "sLengthMenu":   "‰„«Ì‘ „Õ ÊÌ«  _MENU_",
+    "sZeroRecords":  "„Ê—œÌ Ì«›  ‰‘œ",
+    "sInfo":         "‰„«Ì‘ _START_  « _END_ «“ „Ã„Ê⁄ _TOTAL_ „Ê—œ",
+    "sInfoEmpty":    " ÂÌ",
+    "sInfoFiltered": "(›Ì· — ‘œÂ «“ „Ã„Ê⁄ _MAX_ „Ê—œ)",
+    "sInfoPostFix":  "",
+    "sSearch":       "Ã” ÃÊ:",
+    "sUrl":          "",
+    "oPaginate": {
+        "sFirst":    "«» œ«",
+        "sPrevious": "ﬁ»·Ì",
+        "sNext":     "»⁄œÌ",
+        "sLast":     "«‰ Â«"
+    }
+}
