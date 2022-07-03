@@ -1,7 +1,7 @@
 ﻿@model DocumentSimilarity.Models.LoginViewModel
 
 @{
-    ViewBag.Title = "ورود به وب سایت";
+    ViewBag.Title = "Login to the website";
 }
 
 
@@ -17,7 +17,7 @@
                        <div class="panel-heading">
                            @Html.AntiForgeryToken()
 
-                           <h3 class="panel-title">برای ورود به وب سایت از حساب کاربری خود استفاده نمایید.</h3>
+                           <h3 class="panel-title">Use your account to enter the website.</h3>
                        </div>
                        <div class="panel-body">
                            <form role="form">
@@ -26,7 +26,7 @@
 
                                    <div class="input-group" dir="ltr" >
 
-                                       @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", placeholder = "نام کاربری", dir = "rtl" })
+                                       @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", placeholder = "User Name", dir = "rtl" })
                                        @Html.ValidationMessageFor(m => m.UserName)
                                        <i class="input-group-addon fa fa-user">
                                        </i>
@@ -34,7 +34,7 @@
 
 
                                    <div class="input-group" dir="ltr" style="margin-top:20px">
-                                       @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "گذرواژه", @Value = "", dir = "rtl" })
+                                       @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Password", @Value = "", dir = "rtl" })
                                        @Html.ValidationMessageFor(m => m.Password)
                                        <i class="input-group-addon fa fa-lock " dir="rtl">
                                        </i>
@@ -50,7 +50,7 @@
                                    <input style="margin-top:40px" type="submit" value="ورود" class="btn btn-lg btn-primary btn-block" />
                                </fieldset>
                                <p style="margin-top:15px ;text-align:center">
-                                   اگر دارای حساب کاربری نمی باشید لطفا از مدیر سیستم درخواست نمایید یک حساب کاربری برای شما ایجاد نماید.
+If you do not have a user account, please ask the system administrator to create one for you.
                                </p>
                            </form>
                        </div>
