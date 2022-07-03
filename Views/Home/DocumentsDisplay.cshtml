@@ -1,7 +1,7 @@
 ﻿@model List<DocumentSimilarity.Models.ResearchDocument>
       
 @{
-    ViewBag.Title = "نمایش اسناد نمایه شده در پایگاه اسناد";
+    ViewBag.Title = "Display documents indexed in the document repository";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -15,26 +15,24 @@
            
             $('#myDataTable').dataTable({
                 language: {
-                    processing: "درحال پردازش...",
-                    lengthMenu: "نمایش محتویات _MENU_",
-                    zeroRecord: "موردی یافت نشد",
-                    info: "نمایش _START_ تا _END_ از مجموع _TOTAL_ مورد",
-                    infoEmpty: "خالی",
-                    infoFiltered: "(فیلتر شده از مجموع _MAX_ مورد)",
+                   processing: "processing...",
+                    lengthMenu:"Show contents of _MENU_",
+                    zeroRecord:"Nothing found",
+                    info: "Display _START_ to _END_ of total _TOTAL_ items.",
+                    infoEmpty: "Empty",
+                    infoFiltered:"(filtered from total _MAX_ items)",
                     infoPostFix: "",
-                    search: "جستجو:",
+                    search: "search:",
                     url: "",
                     paginate: {
-                        first: "ابتدا ",
-                        previous: "قبلی ",
-                        next: "بعدی ",
-                        last: "انتها "
+                        first: "first ",
+                        previous: "previous ",
+                        next: "next ",
+                        last: "last "
                     }
                 }
-            }).makeEditable();
-            
+            });
         });
-        
     </script>
 
 }
@@ -43,11 +41,11 @@
     <table id="myDataTable" class="display table table-striped table-bordered table-condensed" style="font-family:b Nazanin; ">
         <thead>
             <tr style="font-family:'B Titr'">
-                <th>نام سند</th>
-                <th>عنوان</th>
-                <th>نگارنده</th>
-                <th>چکیده</th>
-                <th>کلمات کلیدی</th>
+                <th>Document Name</th>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Abstract</th>
+                <th>Key words </th>
                
             </tr>
         </thead>
@@ -114,7 +112,7 @@
 
         $(document).ready(function () {
            
-            $("#btnDeleteRow").html('حذف سند')
+            $("#btnDeleteRow").html('Delete document')
         
 
         });
