@@ -1,7 +1,7 @@
 ﻿@model DocumentSimilarity.Models.ResearchDocument
 
 @{
-    ViewBag.Title = "تشخیص میزان تشابه اسناد";
+    ViewBag.Title = "Determining the degree of similarity of documents";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -37,10 +37,10 @@
     <!-- Nav tabs -->
     <ul class="nav nav-tabs navbar-right">
         <li class="active">
-            <a href="#structureTab" data-toggle="tab">اسناد ساختارمند</a>
+            <a href="#structureTab" data-toggle="tab">Structured documents</a>
         </li>
         <li>
-            <a href="#UnstructureTab" data-toggle="tab">اسناد بدون ساختار</a>
+            <a href="#UnstructureTab" data-toggle="tab">Unstructured documents</a>
         </li>
 
     </ul>
@@ -50,8 +50,8 @@
         <div id="structureTab" class="tab-pane fade in active">
             <div class="row">
                 <div class="col-lg-12">
-                    <h4>پایان نامه ها و مقالات ساختارمند</h4>
-                    <p>پایان نامه ها و مقالات ساختارمند، آن دسته از اسنادی هستند که دارای بخش های مشخص و از پیش تعیین شده می باشند. این بخش ها شامل، عنوان، نگارنده، چکیده، کلمات کلیدی و مقدمه می باشند که با استفاده از عبارات معیین و از پیش تعیین شده ای در سند مربوطه مشخص شده اند.</p>
+                    <h4>Dissertations and structured articles</h4>
+                    <p>Dissertations and structured articles are those documents that have specific and predetermined sections. These sections include the title, author, abstract, keywords and introduction, which are specified using specific and predetermined expressions in the relevant document.</p>
                 </div>
             </div>
 
@@ -62,7 +62,7 @@
 
             <div class="row">
                 <div class="col-lg-12">
-                    <div style="text-align:center">لطفا سند (مقاله/پایان نامه) ساختارمند خود را انتخاب و بارگزاری کنید: </div>
+                        <div style="text-align:center">Please select and upload your structured document (dissertation/dissertation): </div>
                     <br />
 
                    
@@ -82,18 +82,18 @@
                     <div class="col-lg-6">
                         <select name="SimilarityFilterCombo" class="selectpicker show-menu-arrow form-control" multiple data-max-options="4" style="border-radius: 5px;text-align:right;direction:rtl">
                             <option value=" Title" selected>
-                                تشابه در عنوان سند
+                               Similarity in the title of the document
                             </option>
-                            <option value="Authors">تشابه در نگارنده سند</option>
-                            <option value="Keywords">تشابه در کلمات کلیدی سند</option>
-                            <option value="Abstract">تشابه در چکیده</option>
-                            <option value="Body">تشابه در بدنه سند</option>
-                            <option value="All">تشابه در کل سند</option>
+                            <option value="Authors">Similarity in the author of the document</option>
+                            <option value="Keywords">Similarity in the key words of the document</option>
+                            <option value="Abstract"> Similarity in the abstract</option>
+                            <option value="Body">Similarity in the body of the document</option>
+                            <option value="All">Similarity throughout the document</option>
                         </select>
                     </div>
                     
                     <div class="col-lg-6" style="text-align:left">
-                        فیلتر شود بر اساس:
+                      Filter by:
                     </div>
 
                 </div>
@@ -101,7 +101,7 @@
                 
                 <div class="checkbox" id="CheckStr" style="font-family: WYekan; text-align: center;float:right; display:block;direction:rtl">
                     <label>
-                        سند مقایسه شونده به پایگاه اسناد اضافه شود.
+                        The compared document should be added to the document repository.
                         @Html.CheckBox("MustBeIndexCheckBox", true, new { style = "font-family:WYekan,margin:auto", id = "MustBeIndexCheckBox" });
                     </label>
                 </div>
@@ -114,8 +114,8 @@
         <div id="UnstructureTab" class="tab-pane fade ">
             <div class="row">
                 <div class="col-lg-12">
-                    <h4>پایان نامه ها و مقالات بدون ساختار مشخص</h4>
-                    <p>پایان نامه ها و مقالات بدون ساختار مشخص، آن دسته از اسنادی هستند که یا شامل بخش های از پیش تعیین شده و مشخصی نمی باشند و یا بخش های محتوای آن ها با استفاده از عبارات معین و از پیش تعریف شده مشخص نگردیده اند.بنابراین الزامی است که محتوای بخش های آن توسظ کاربر بطور مناسب وارد شوند. </p>
+                    <h4>Dissertations and articles without a clear structure</h4>
+                    <p>Dissertations and articles without a specific structure are those documents that either do not include predetermined and specific sections, or their content sections are not specified using specific and predefined expressions. Therefore, it is mandatory that the contents of its sections are entered by the user appropriately.</p>
                 </div>
             </div>
 
@@ -129,21 +129,21 @@
                     <div class="form-group">
                         @Html.LabelFor(m => m.Title, new { @class = " control-label" }):
                         <div class="col-md-10">
-                            @Html.TextBoxFor(m => m.Title, new { @class = "col-md-20 form-control", placeholder = "عنوان", style = "width:500px" })
+                            @Html.TextBoxFor(m => m.Title, new { @class = "col-md-20 form-control", placeholder = "Title", style = "width:500px" })
                             
                         </div>
                     </div>
                     <div class="form-group">
                         @Html.LabelFor(m => m.Authors[0].Name, new { @class = " control-label" }):
                         <div class="col-md-10">
-                            @Html.TextBoxFor(m => m.Authors[0].Name, new { @class = "col-md-20 form-control", placeholder = "نام نگارنده", style = "width:500px" })
+                            @Html.TextBoxFor(m => m.Authors[0].Name, new { @class = "col-md-20 form-control", placeholder = "Name of Author", style = "width:500px" })
                            
                         </div>
                     </div>
                     <div class="form-group">
                         @Html.LabelFor(m => m.Keywords, new { @class = " control-label" }):
                         <div class="col-md-10">
-                            @Html.TextBoxFor(m => m.Keywords, new { @class = "col-md-20 form-control", placeholder = "کلمات کلیدی ", style = "width:500px" })
+                            @Html.TextBoxFor(m => m.Keywords, new { @class = "col-md-20 form-control", placeholder = "Key words ", style = "width:500px" })
                           
                         </div>
                     </div>
@@ -151,14 +151,14 @@
                     <div class="form-group">
                         @Html.LabelFor(m => m.Year, new { @class = " control-label" }):
                         <div class="col-md-10">
-                            @Html.TextBoxFor(m => m.Year, new { @class = "col-md-20 form-control", placeholder = "سال نگارش ", style = "width:500px" })
+                            @Html.TextBoxFor(m => m.Year, new { @class = "col-md-20 form-control", placeholder = "year of writing  ", style = "width:500px" })
                            
                         </div>
                     </div>
                     <div class="form-group">
                         @Html.LabelFor(m => m.Abstract, new { @class = " control-label" }):
                         <div class="col-md-10">
-                            @Html.TextAreaFor(m => m.Abstract, 10, 10, new { @class = "col-md-20 form-control", placeholder = "چکیده", style = "width:80%" })
+                            @Html.TextAreaFor(m => m.Abstract, 10, 10, new { @class = "col-md-20 form-control", placeholder = "Abstract", style = "width:80%" })
                             
 
                         </div>
@@ -172,7 +172,7 @@
 {
             <div class="row">
                 <div class="col-lg-12">
-                    <div style="text-align:center;float:none">لطفا سند (مقاله/پایان نامه) بدون ساختارخود را انتخاب و بارگزاری کنید: </div>
+                    <div style="text-align:center;float:none">Please select and upload your unstructured document (essay/dissertation): </div>
                     <br />
                    
 
@@ -187,24 +187,24 @@
             </div>
             <div class="row">
                 <div dir="rtl" style="width:200px;margin:auto;text-align:right">
-                    فیلتر شود بر اساس:
+                    Filter by:
 
                     <select name="SimilarityFilterCombo" class="selectpicker show-menu-arrow form-control" multiple data-max-options="4" style="border-radius: 5px;text-align:right;direction:rtl">
                         <option value=" Title" selected>
-                            تشابه در عنوان سند
+                           Similarity in the title of the document
                         </option>
-                        <option value="Authors">تشابه در نگارنده سند</option>
-                        <option value="Keywords">تشابه در کلمات کلیدی سند</option>
-                        <option value="Abstract">تشابه در چکیده</option>
-                        <option value="Body">تشابه در بدنه سند</option>
-                        <option value="All">تشابه در کل سند</option>
+                            <option value="Authors">Similarity in the author of the document</option>
+                            <option value="Keywords">Similarity in the key words of the document</option>
+                            <option value="Abstract"> Similarity in the abstract</option>
+                            <option value="Body">Similarity in the body of the document</option>
+                            <option value="All">Similarity throughout the document</option>
                     </select>
 
                 </div>
 
                 <div class="checkbox" id="CheckUns"  style="font-family: WYekan; text-align: center;direction:rtl">
                     <label>
-                        سند مقایسه شونده به پایگاه اسناد اضافه شود.
+                        The compared document should be added to the document database.
                         @Html.CheckBox("MustBeIndexCheckBox", true, new { style = "font-family:WYekan,margin:auto", id = "DocumentSavingUns" });
                     </label>
                 </div>
