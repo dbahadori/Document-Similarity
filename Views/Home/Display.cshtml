@@ -1,6 +1,6 @@
 ﻿
 @{
-    ViewBag.Title = "سیسی";
+    ViewBag.Title = "Display";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <script>
@@ -15,7 +15,7 @@
         <div class="col-md-12">
             <form class="form-horizontal" role="form" method="post">
                 <div class="input-group" id="adv-search" style="direction: ltr;text-align:right; font-family: WYekan; ">
-                    <input type="text" class="form-control" name="Searchtxt" placeholder="عبارت خود را اینجا بنویسید" />
+                    <input type="text" class="form-control" name="Searchtxt" placeholder="Write your phrase here" />
                     <div class="input-group-btn">
                         <div class="btn-group" role="group">
                             <div class="dropdown dropdown-lg">
@@ -26,9 +26,9 @@
 
                                     <div class="form-group">
                                         <select class="form-control" name="SearchFilterCombo">
-                                            <option value="AtLeastOneWord" selected>حداق شامل یک کلمه از عبارت باشد</option>
-                                            <option value="AllWords">شامل تمامی کلمات عبارت باشد</option>
-                                            <option value="Phrase">شامل عین عبارت باشد</option>
+                                            <option value="AtLeastOneWord" selected>contain at least one word of the phrase</option>
+                                            <option value="AllWords">Include all the words in the phrase</option>
+                                            <option value="Phrase">contain the same phrase</option>
                                         </select>
                                     </div>
 
