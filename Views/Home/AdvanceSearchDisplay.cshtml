@@ -1,7 +1,7 @@
 ﻿@model List<DocumentSimilarity.Models.ResearchDocument>
 
 @{
-    ViewBag.Title = "جستجوی پیشرفته";
+    ViewBag.Title = "advanced search";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -144,7 +144,7 @@
         <div class="panel-heading">
             <h4 class="panel-title">
                 <a data-toggle="collapse" class="WYekan-font" data-parent="#accordion" data-target="#collapseOne">
-                    جستجوی جدید
+                   New search
                 </a>
             </h4>
         </div>
@@ -158,12 +158,12 @@
                                     <div class="col-md-6 form-group">
                                         <div class="input-group form-group" dir="ltr" style="margin-left: 10px; margin-right: 10px; margin-top: 5%">
                                             <select style="height:40px;text-align:right;" id="Bodycombo" name="Bodycombo" class="form-control dropdown-toggle">
-                                                <option value="0" selected="">حداق شامل یک کلمه از عبارت باشد</option>
-                                                <option value="1">شامل تمامی کلمات عبارت باشد</option>
-                                                <option value="2">شامل عین عبارت باشد</option>
+                                                <option value="0" selected="">contain at least one word of the phrase</option>
+                                                <option value="1">Include all the words in the phrase</option>
+                                                <option value="2">contain the same phrase</option>
                                             </select>
                                             <span class="input-group-addon" style="background-color: white; border: none; height: 40px;height:40px; direction: rtl;">
-                                                <label aria-label="Checkbox for following text input">فیلتر شود بر اساس:</label>
+                                                <label aria-label="Checkbox for following text input">Filter by:</label>
                                             </span>
 
                                         </div>
@@ -171,7 +171,7 @@
                                     <div class="col-sm-6">
                                         <div id="imaginary_container" style="margin-top:5%">
                                             <div style="width: 100%; height:50px;text-align:center ;margin:auto" class="input-group stylish-input-group">
-                                                <input style=" height:50px;" name="Bodytxt" id="Bodytxt" class=" form-control" placeholder="جستجوی در بدنه سند" dir="rtl" type="text">
+                                                <input style=" height:50px;" name="Bodytxt" id="Bodytxt" class=" form-control" placeholder="Search in the body of the document" dir="rtl" type="text">
                                                 <span class="input-group-addon">
                                                     <button type="submit">
                                                         <span class="glyphicon glyphicon-search"></span>
@@ -196,27 +196,27 @@
                             <div id="filter-panel" class="collapse filter-panel">
                                 <div class="panel panel-primary">
                                     <div class="panel-heading" style="text-align:center">
-                                        <h4 style="font-family:WYekan; align-content:center">  با انتخاب هر چک باکس می توانید فیلد و فیلتر مربوطه را در جستجوی خود اعمال کنید.</h4>
+                                        <h4 style="font-family:WYekan; align-content:center">By selecting each checkbox, you can apply the corresponding field and filter in your search.</h4>
 
                                     </div>
                                     <div class="panel-body">
                                         <div class="row">
                                             <div class="col-md-6 form-group">
                                                 <div class="input-group form-group" dir="ltr" style="margin-left:10px;margin-right:10px">
-                                                    <select style="height:40px;text-align:right;" id="Titlecombo" name="Titlecombo" disabled class="form-control dropdown-toggle">
-                                                        <option value="0" selected="">حداق شامل یک کلمه از عبارت باشد</option>
-                                                        <option value="1">شامل تمامی کلمات عبارت باشد</option>
-                                                        <option value="2">شامل عین عبارت باشد</option>
+                                                   <select style="height:40px;text-align:right;" id="Bodycombo" name="Bodycombo" class="form-control dropdown-toggle">
+                                                        <option value="0" selected="">contain at least one word of the phrase</option>
+                                                        <option value="1">Include all the words in the phrase</option>
+                                                        <option value="2">contain the same phrase</option>
                                                     </select>
                                                     <span class="input-group-addon" style="background-color: white; border: none; height: 40px;height:40px; direction: rtl;">
-                                                        <label aria-label="Checkbox for following text input">فیلتر شود بر اساس:</label>
+                                                        <label aria-label="Checkbox for following text input">Filter by:</label>
                                                     </span>
 
                                                 </div>
                                             </div>
                                             <div class="col-md-6  form-group">
                                                 <div class="input-group form-group" dir="ltr" style="margin-left:10px;margin-right:10px">
-                                                    <input class="form-control" disabled name="Titletxt" id="Titletxt" placeholder="عنوان سند (مقاله/ پایان نامه) " dir="rtl" aria-label="Text input with radio button" type="text">
+                                                    <input class="form-control" disabled name="Titletxt" id="Titletxt" placeholder="Title of the document (article/dissertation) " dir="rtl" aria-label="Text input with radio button" type="text">
                                                     <span class="input-group-addon">
                                                         <input id="Title_check" name="Title_check" onchange="return EnableDisableTXT(this)" aria-label="Checkbox for following text input" type="checkbox">
                                                     </span>
@@ -227,8 +227,8 @@
                                         <div class="row">
                                             <div style="text-align: center;" class="col-md-12 form-group">
                                                 <div dir="rtl" class="form-group" style="">
-                                                    <label style="margin-left: 20px;"><input name="Authorsradio" value="MUST" style="margin-left:5px" type="radio">و (And)</label>
-                                                    <label class=""><input name="Authorsradio" value="SHOULD" checked style="margin-left:5px" type="radio">یا (Or)</label>
+                                                    <label style="margin-left: 20px;"><input name="Authorsradio" value="MUST" style="margin-left:5px" type="radio">And</label>
+                                                    <label class=""><input name="Authorsradio" value="SHOULD" checked style="margin-left:5px" type="radio">Or</label>
                                                 </div>
                                             </div>
 
@@ -237,19 +237,19 @@
                                             <div class="col-md-6 form-group">
                                                 <div class="input-group form-group" dir="ltr" style="margin-left:10px;margin-right:10px">
                                                     <select id="Authorscombo" style="height:40px;text-align:right;" disabled class="form-control dropdown-toggle" name="Authorscombo">
-                                                        <option value="0" selected="">حداق شامل یک کلمه از عبارت باشد</option>
-                                                        <option value="1">شامل تمامی کلمات عبارت باشد</option>
-                                                        <option value="2">شامل عین عبارت باشد</option>
+                                                        <option value="0" selected="">contain at least one word of the phrase</option>
+                                                        <option value="1">Include all the words in the phrase</option>
+                                                        <option value="2">contain the same phrase</option>
                                                     </select>
-                                                    <span class="input-group-addon" style="background-color: white; border: none; height: 40px; direction: rtl;">
-                                                        <label aria-label="Checkbox for following text input">فیلتر شود بر اساس:</label>
+                                                    <span class="input-group-addon" style="background-color: white; border: none; height: 40px;height:40px; direction: rtl;">
+                                                        <label aria-label="Checkbox for following text input">Filter by:</label>
                                                     </span>
 
                                                 </div>
                                             </div>
                                             <div class="col-md-6  form-group">
                                                 <div class="input-group form-group" dir="ltr" style="margin-left:10px;margin-right:10px">
-                                                    <input class="form-control" disabled id="Authorstxt" name="Authorstxt" placeholder="نام نگارنده " dir="rtl" aria-label="Text input with radio button" type="text">
+                                                    <input class="form-control" disabled id="Authorstxt" name="Authorstxt" placeholder="Author's name " dir="rtl" aria-label="Text input with radio button" type="text">
                                                     <span class="input-group-addon">
                                                         <input type="checkbox" id="Authors_check" onchange="return EnableDisableTXT(this)" aria-label="Checkbox for following text input">
                                                     </span>
@@ -260,8 +260,8 @@
                                         <div class="row">
                                             <div style="text-align: center;" class="col-md-12 form-group">
                                                 <div dir="rtl" class="form-group" style="">
-                                                    <label style="margin-left: 20px;"><input name="Keywordsradio" value="MUST" style="margin-left:5px" type="radio">و (And)</label>
-                                                    <label class=""><input name="Keywordsradio" value="SHOULD" checked style="margin-left:5px" type="radio">یا (Or)</label>
+                                                    <label style="margin-left: 20px;"><input name="Keywordsradio" value="MUST" style="margin-left:5px" type="radio">And</label>
+                                                    <label class=""><input name="Keywordsradio" value="SHOULD" checked style="margin-left:5px" type="radio">Or</label>
                                                 </div>
                                             </div>
 
@@ -270,19 +270,19 @@
                                             <div class="col-md-6  form-group">
                                                 <div class="input-group form-group" dir="ltr" style="margin-left:10px;margin-right:10px">
                                                     <select id="Keywordscombo" style="height:40px;text-align:right;" disabled class="form-control dropdown-toggle" name="Keywordscombo">
-                                                        <option value="0" selected="">حداق شامل یک کلمه از عبارت باشد</option>
-                                                        <option value="1">شامل تمامی کلمات عبارت باشد</option>
-                                                        <option value="2">شامل عین عبارت باشد</option>
+                                                        <option value="0" selected="">contain at least one word of the phrase</option>
+                                                        <option value="1">Include all the words in the phrase</option>
+                                                        <option value="2">contain the same phrase</option>
                                                     </select>
-                                                    <span class="input-group-addon" style="background-color: white; border: none; height: 40px; direction: rtl;">
-                                                        <label aria-label="Checkbox for following text input">فیلتر شود بر اساس:</label>
+                                                    <span class="input-group-addon" style="background-color: white; border: none; height: 40px;height:40px; direction: rtl;">
+                                                        <label aria-label="Checkbox for following text input">Filter by:</label>
                                                     </span>
 
                                                 </div>
                                             </div>
                                             <div class="col-md-6  form-group">
                                                 <div class="input-group form-group" dir="ltr" style="margin-left:10px;margin-right:10px">
-                                                    <input class="form-control" disabled id="Keywordstxt" name="Keywordstxt" placeholder="کلمات کلیدی" dir="rtl" aria-label="Text input with radio button" type="text">
+                                                    <input class="form-control" disabled id="Keywordstxt" name="Keywordstxt" placeholder="key words" dir="rtl" aria-label="Text input with radio button" type="text">
                                                     <span class="input-group-addon">
                                                         <input type="checkbox" id="Keywords_check" onchange="return EnableDisableTXT(this)" aria-label="Checkbox for following text input">
                                                     </span>
@@ -293,8 +293,8 @@
                                         <div class="row">
                                             <div style="text-align: center;" class="col-md-12 form-group">
                                                 <div dir="rtl" class="form-group" style="">
-                                                    <label style="margin-left: 20px;"><input name="Yearradio" value="MUST" style="margin-left:5px" type="radio">و (And)</label>
-                                                    <label class=""><input name="Yearsradio" value="SHOULD" checked style="margin-left:5px" type="radio">یا (Or)</label>
+                                                    <label style="margin-left: 20px;"><input name="Yearradio" value="MUST" style="margin-left:5px" type="radio">\And</label>
+                                                    <label class=""><input name="Yearsradio" value="SHOULD" checked style="margin-left:5px" type="radio">Or</label>
                                                 </div>
                                             </div>
 
@@ -303,19 +303,19 @@
                                             <div class="col-md-6  form-group">
                                                 <div class="input-group form-group" dir="ltr" style="margin-left:10px;margin-right:10px">
                                                     <select id="Yearcombo" disabled style="height:40px;text-align:right;" class="form-control dropdown-toggle" name="Yearcombo">
-                                                        <option value="0" selected="">حداق شامل یک کلمه از عبارت باشد</option>
-                                                        <option value="1">شامل تمامی کلمات عبارت باشد</option>
-                                                        <option value="2">شامل عین عبارت باشد</option>
+                                                        <option value="0" selected="">contain at least one word of the phrase</option>
+                                                        <option value="1">Include all the words in the phrase</option>
+                                                        <option value="2">contain the same phrase</option>
                                                     </select>
-                                                    <span class="input-group-addon" style="background-color: white; border: none; height: 40px; direction: rtl;">
-                                                        <label aria-label="Checkbox for following text input">فیلتر شود بر اساس:</label>
+                                                    <span class="input-group-addon" style="background-color: white; border: none; height: 40px;height:40px; direction: rtl;">
+                                                        <label aria-label="Checkbox for following text input">Filter by:</label>
                                                     </span>
 
                                                 </div>
                                             </div>
                                             <div class="col-md-6 form-group">
                                                 <div class="input-group form-group" dir="ltr" style="margin-left:10px;margin-right:10px">
-                                                    <input class="form-control" disabled name="Yeartxt" id="Yeartxt" placeholder="سال انتشار" dir="rtl" aria-label="Text input with radio button" type="text">
+                                                    <input class="form-control" disabled name="Yeartxt" id="Yeartxt" placeholder="year of publication" dir="rtl" aria-label="Text input with radio button" type="text">
                                                     <span class="input-group-addon">
                                                         <input type="checkbox" id="Year_check" onchange="return EnableDisableTXT(this)" aria-label="Checkbox for following text input">
                                                     </span>
@@ -326,8 +326,8 @@
                                         <div class="row">
                                             <div style="text-align: center;" class="col-md-12 form-group">
                                                 <div dir="rtl" class="form-group" style="">
-                                                    <label style="margin-left: 20px;"><input name="Abstractradio" value="MUST" style="margin-left:5px" type="radio">و (And)</label>
-                                                    <label class=""><input name="Abstractradio" value="SHOULD" checked style="margin-left:5px" type="radio">یا (Or)</label>
+                                                    <label style="margin-left: 20px;"><input name="Abstractradio" value="MUST" style="margin-left:5px" type="radio">And</label>
+                                                    <label class=""><input name="Abstractradio" value="SHOULD" checked style="margin-left:5px" type="radio">Or</label>
                                                 </div>
                                             </div>
 
@@ -336,19 +336,19 @@
                                             <div class="col-md-6  form-group">
                                                 <div class="input-group form-group" dir="ltr" style="margin-left:10px;margin-right:10px">
                                                     <select id="Abstractcombo" style="height:40px;text-align:right;" disabled class="form-control dropdown-toggle" name="Abstractcombo">
-                                                        <option value="0" selected="">حداق شامل یک کلمه از عبارت باشد</option>
-                                                        <option value="1">شامل تمامی کلمات عبارت باشد</option>
-                                                        <option value="2">شامل عین عبارت باشد</option>
+                                                        <option value="0" selected="">contain at least one word of the phrase</option>
+                                                        <option value="1">Include all the words in the phrase</option>
+                                                        <option value="2">contain the same phrase</option>
                                                     </select>
-                                                    <span class="input-group-addon" style="background-color: white; border: none; height: 40px; direction: rtl;">
-                                                        <label aria-label="Checkbox for following text input">فیلتر شود بر اساس:</label>
+                                                    <span class="input-group-addon" style="background-color: white; border: none; height: 40px;height:40px; direction: rtl;">
+                                                        <label aria-label="Checkbox for following text input">Filter by:</label>
                                                     </span>
 
                                                 </div>
                                             </div>
                                             <div class="col-md-6 form-group">
                                                 <div class="input-group form-group" dir="ltr" style="margin-left:10px;margin-right:10px">
-                                                    <input class="form-control" disabled="" id="Abstracttxt" name="Abstracttxt" placeholder="چکیده" dir="rtl" aria-label="Text input with radio button" type="text">
+                                                    <input class="form-control" disabled="" id="Abstracttxt" name="Abstracttxt" placeholder="Abstract" dir="rtl" aria-label="Text input with radio button" type="text">
                                                     <span class="input-group-addon">
                                                         <input type="checkbox" id="Abstract_check" onchange="return EnableDisableTXT(this)" aria-label="Checkbox for following text input">
                                                     </span>
@@ -375,7 +375,7 @@
         <div class="panel-heading">
             <h4 class="panel-title" data-toggle="collapse" data-parent="#accordion" data-target="#collapseTwo">
                 <a class="accordion-toggle WYekan-font">
-                    نتیجه جستجو
+                   search result
                 </a>
             </h4>
         </div>
@@ -385,12 +385,12 @@
                     <table id="myDataTable" class="display table table-striped table-bordered table-condensed" style="font-family:b Nazanin; ">
                         <thead>
                             <tr style="font-family:'B Titr'">
-                                <th>نام سند</th>
+                                <th>document name</th>
 
-                                <th>عنوان</th>
-                                <th>نگارنده</th>
-                                <th>چکیده</th>
-                                <th>کلمات کلیدی</th>
+                                <th>Title</th>
+                                <th>Author</th>
+                                <th>Abstract</th>
+                                <th>key words</th>
                             </tr>
                         </thead>
                         <tbody>
