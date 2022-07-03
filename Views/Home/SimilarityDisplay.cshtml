@@ -1,7 +1,7 @@
 ﻿@model DocumentSimilarity.Models.ResearchDocument
 
 @{
-    ViewBag.Title = "تشخیص میزان تشابه اسناد";
+    ViewBag.Title = "Determining the degree of similarity of documents";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -38,7 +38,7 @@
     </div>
 </div>
 <div id="loading">
-    <img src='@Url.Content("~/Images/spin.gif")' /><p><b>بارگذاری  @ViewBag.RecordsPerPage صفحه بعدی&hellip;</b></p>
+    <img src='@Url.Content("~/Images/spin.gif")' /><p><b>uploading  @ViewBag.RecordsPerPagenext page&hellip;</b></p>
 </div>
 @section scripts{
     <script src="~/Scripts/infiniteScroll.js"></script>
