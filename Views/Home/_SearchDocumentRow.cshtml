@@ -11,7 +11,7 @@
     }
     function SearchResultMessage(id, recordCount, searchString) {
 
-        var m = recordCount + "نتیجه برای  " + searchString + "جستجو شده است.";
+        var m = recordCount + "result for  " + searchString + "Searched";
         var S = document.createElement("span");
         S.className = "text-navy";
         S.id = "message_span";
@@ -35,8 +35,8 @@
         <h3><a href="@item.Value.Title">@item.Value.Title </a>
         </h3>
         
-        <div>نام سند : @item.Value.Name</div>
-        <div id="@item.Value.Name">نام گردآورنده : </div>
+        <div>document name : @item.Value.Name</div>
+        <div id="@item.Value.Name">Name of the author:</div>
         <p>
             @{if (item.Value.Body.Length > 500)
               {
