@@ -29,7 +29,7 @@
                             <p>
                                 <div class="input-group">
                                     <div class="input-group-btn">
-                                        <input class="btn btn-lg btn-primary" type="submit" value="جستجو" />
+                                        <input class="btn btn-lg btn-primary" type="submit" value="search" />
                                     </div>
                                     <div class="form-control input-lg">
                                         @Html.TextBox("AbstractString")
@@ -57,7 +57,7 @@
     </div>
 </div>
 <div id="loading">
-    <img src='@Url.Content("~/Images/spin.gif")' /><p><b>بارگذاری  @ViewBag.RecordsPerPage صفحه بعدی&hellip;</b></p>
+    <img src='@Url.Content("~/Images/spin.gif")' /><p><b>uploading  @ViewBag.RecordsPerPage  next page&hellip;</b></p>
 </div>
 @section scripts{
     <script src="~/Scripts/infiniteScroll.js"></script>
