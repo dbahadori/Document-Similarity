@@ -3,8 +3,8 @@
 DocumentSimilarity project is a web based plagiarism detection system for word documents using information retrieval based methods. I used the document similarity analysis and tf-idf technique as a term weighting method which is the main model in our system. This system is implemented using Lucene.Net and ASP.Net MCV.
 
 #  Solution 
-System used two pre-processing steps.
-1. in the first step system pre-processes the document once it is imported to the system in order to extract different sections of it. The extracted information are temporary and keep in memory. in order to save the extracted information permanently on the disk, aد XML template is used. 
+There is two pre-processing steps in order to prepare documents for indexing by document repository.
+1. in the first step system pre-processes the document once it is imported to the system in order to extract different sections of it. The extracted information are temporary and keep in memory. in order to save the extracted information permanently on the disk, an XML template is used. 
 
 1. After extracting all sections of the imported document, system pre-processes the content of each section by doing normalization, lemmatization and tokenization operations. To perform lemmatizating, first the sentences are separated in each section and after that the tokens are separated in each sentence. Then for each token lemmatization action is performed. Finally, the tokens are merged in the same order as they were separated to create the initial sentences.
 
